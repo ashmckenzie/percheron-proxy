@@ -1,0 +1,39 @@
+---
+docker:
+  host: "https://boot2docker:2376"
+  ssl_verify_peer: false
+
+stacks:
+  - name: proxy
+    containers:
+
+      - name: base
+        version: 1.0.0
+        dockerfile: base/Dockerfile
+        startable: false
+
+      - name: haproxy
+        version: 1.0.0
+        dockerfile: haproxy/Dockerfile
+        ports:
+          - 8888:80
+        dependant_container_names:
+          - base
+          - proxy1
+          - proxy2
+
+      - name: proxy
+        instances: 2
+        version: 1.0.0
+        dockerfile: proxy/Dockerfile
+        dependant_container_names:
+          - base
+          - app1
+          - app2
+
+      - name: app
+        instances: 2
+        version: 1.0.0
+        dockerfile: app/Dockerfile
+        dependant_container_names:
+          - base
