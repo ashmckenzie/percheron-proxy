@@ -30,9 +30,11 @@ stacks:
           - base
           - app1
           - app2
+          - app3
+          - app4
 
       - name: app
-        instances: 2
+        instances: 4
         version: 1.0.0
         dockerfile: app/Dockerfile
         dependant_container_names:
