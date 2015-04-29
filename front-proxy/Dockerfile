@@ -1,7 +1,7 @@
 FROM proxy_base:1.0.0
 MAINTAINER ash@the-rebellion.net
 
-ADD config/nginx.conf /etc/nginx/sites-enabled/proxy.conf
+ADD config/nginx.conf /etc/nginx/sites-enabled/front-proxy.conf
 ADD services/nginx.ini /etc/supervisord.d/nginx.ini
 
 EXPOSE 80

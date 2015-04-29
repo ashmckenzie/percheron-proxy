@@ -5,9 +5,10 @@ This repo contains a complete HAProxy + nginx stack for use with [Percheron](htt
 ## Containers included
 
 * base (just an image, used by all containers)
-* haproxy
-* proxy (2)
-* app (2)
+* front-lb - Load balancer that sees requests first (HAproxy)
+* front-proxy (2) - Proxy off to App load balancers (nginx)
+* app-lb (2) - Load balancer for app (HAproxy)
+* app (2) - Servers 200 for any request (nginx)
 
 ## Dependancies
 

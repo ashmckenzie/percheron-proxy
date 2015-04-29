@@ -9,29 +9,37 @@ stacks:
 
       - name: base
         version: 1.0.0
-        dockerfile: base/Dockerfile
+        dockerfile: _base/Dockerfile
         startable: false
 
-      - name: haproxy
+      - name: front-lb
         version: 1.0.0
-        dockerfile: haproxy/Dockerfile
+        dockerfile: front-lb/Dockerfile
         ports:
           - 8888:80
         dependant_container_names:
           - base
-          - proxy1
-          - proxy2
+          - front-proxy1
+          - front-proxy2
 
-      - name: proxy
+      - name: front-proxy
         instances: 2
         version: 1.0.0
-        dockerfile: proxy/Dockerfile
+        dockerfile: front-proxy/Dockerfile
+        dependant_container_names:
+          - base
+          - app-lb1
+          - app-lb2
+
+      - name: app-lb
+        instances: 2
+        version: 1.0.0
+        dockerfile: app-lb/Dockerfile
         dependant_container_names:
           - base
           - app1
           - app2
           - app3
-          - app4
 
       - name: app
         instances: 4
