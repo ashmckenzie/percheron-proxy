@@ -5,7 +5,7 @@ docker:
 
 stacks:
   - name: proxy
-    containers:
+    units:
 
       - name: base
         version: 1.0.0

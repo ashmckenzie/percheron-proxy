@@ -1,8 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    clamp (0.6.4)
-    docker-api (1.21.2)
+    clamp (0.6.5)
+    docker-api (1.21.4)
       excon (>= 0.38.0)
       json
     excon (0.45.3)
@@ -12,7 +12,7 @@ GEM
     liquid (3.0.2)
     metastore (0.3.0)
     naught (1.0.0)
-    percheron (0.7.5)
+    percheron (0.7.7)
       clamp (~> 0.6)
       docker-api (~> 1.20)
       hashie (~> 3.2)
