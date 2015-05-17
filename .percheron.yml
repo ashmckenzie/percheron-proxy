@@ -17,7 +17,7 @@ stacks:
         dockerfile: front-lb/Dockerfile
         ports:
           - 8888:80
-        dependant_container_names:
+        dependant_unit_names:
           - base
           - front-proxy1
           - front-proxy2
@@ -26,7 +26,7 @@ stacks:
         instances: 2
         version: 1.0.0
         dockerfile: front-proxy/Dockerfile
-        dependant_container_names:
+        dependant_unit_names:
           - base
           - app-lb1
           - app-lb2
@@ -35,7 +35,7 @@ stacks:
         instances: 2
         version: 1.0.0
         dockerfile: app-lb/Dockerfile
-        dependant_container_names:
+        dependant_unit_names:
           - base
           - app1
           - app2
@@ -45,5 +45,5 @@ stacks:
         instances: 4
         version: 1.0.0
         dockerfile: app/Dockerfile
-        dependant_container_names:
+        dependant_unit_names:
           - base
