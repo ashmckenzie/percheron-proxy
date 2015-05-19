@@ -6,7 +6,6 @@ docker:
 stacks:
   - name: proxy
     units:
-
       - name: base
         version: 1.0.0
         dockerfile: _base/Dockerfile
@@ -39,10 +38,9 @@ stacks:
           - base
           - app1
           - app2
-          - app3
 
       - name: app
-        instances: 4
+        instances: 2
         version: 1.0.0
         dockerfile: app/Dockerfile
         dependant_unit_names:
